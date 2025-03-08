@@ -4,10 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Корзина</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./style.css">
     <script defer src="cart.js"></script>
+    
 </head>
 <body>
+    <header class="header">
+        <div class="logo-text">
+            <img class="logo" src="./img/Group.svg" alt="logo">
+            <p class="name-web">СЕВЕРЯНОЧКА</p>
+        </div>
+        <div class="catalog-container">
+            <button class="catalog-button">
+                <span class="menu-icon">&#9776;</span> Каталог
+            </button>
+            <div class="catalog-dropdown">
+                <a href="./Katalog.html">Каталог</a>   
+                <a href="./index.html">Главная</a>
+                <a href="#">Категория 3</a>
+                <a href="#">Категория 4</a>
+            </div>
+        </div>
+        <div class="search-container">
+            <input class="search-bar" id="search" type="text" placeholder="Найти товар"button type="submit"><img class="search " src="./img/search.svg" alt="искать"></button>
+            <ul class="search-suggestions"></ul>
+        </div>
+        <div class="header-buttons">
+            <button >Избранное</button>
+            <button >Заказы</button>
+            <img src="./img/shopping-cart.svg" alt="photo-Корзины">
+            <a href="./index1.html"><button>Корзина</button></a> 
+        </div>
+    </header>
     <header>
         <h1>Корзина</h1>
         <a href="./index.html">Назад в магазин</a>
@@ -20,6 +48,7 @@
             <button id="clear-cart">Очистить корзину</button>
         </section>
     </main>
+    <script src="./script.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let cartList = document.getElementById("cart-list");

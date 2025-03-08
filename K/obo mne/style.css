@@ -1,4 +1,10 @@
 body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+body {
     font-family: Rubik;
     margin: 0;
     padding: 0;
@@ -430,14 +436,14 @@ h5 {
 }
 
 footer {
-    margin-top: 7.5rem;
+    
     width: 100%;
     background: url(./img/bg.png);
 }
 
 footer {
     margin-top: 7.5rem;
-    width: 100%;
+    width: 70%;
     background-color: #fef0e6;
     padding: 2rem 0;
     display: flex;
@@ -450,13 +456,14 @@ footer {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 0 2rem;
+   margin-left: 300px;
 }
 
 .footer-left,
 .footer-right {
     display: flex;
     align-items: center;
+    gap: 40px   ;
 }
 
 nav {
@@ -520,3 +527,125 @@ nav a {
     font-size: 12px;
     display: none;
 }
+
+.catalog-btn{
+background-color: #70C05B;
+color: white;
+border: none;
+border-radius: 5%;
+padding: 1rem;
+}
+
+.catalog-container {
+    position: relative;
+    display: inline-block;
+}
+
+.catalog-button {
+    background-color: #6abf4b; /* Цвет кнопки */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+.menu-icon {
+    font-size: 18px;
+}
+
+.catalog-dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+}
+
+.catalog-dropdown a {
+    color: #333;
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+}
+
+.catalog-dropdown a:hover {
+    background-color: #f2f2f2;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .catalog-button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+    .catalog-dropdown {
+        min-width: 100%;
+    }
+
+        }
+
+.about {
+   
+    margin-left: 300px;
+    
+}
+.section-1{
+    display: flex;
+    align-items: center;
+    gap: 30%;
+}
+
+h2 {
+    color: #333;
+    font-size: 35px;
+}
+
+.intro {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    width: 300%;
+}
+
+.highlight {
+    color: #FF6633;
+    font-weight: bold;
+}
+
+.img-1{
+    background: url(./img/Vector.svg);
+    
+}
+
+
+
+.start{
+    margin-top: 120px;
+    display: flex;
+    align-items: center;
+    gap: 250px;
+}
+
+.div-1{
+   display: flex;
+   gap: 1%;
+   font-size: 14px;
+}
+h1{
+    font-size: 16px;
+    margin-left: 25px;
+}
+.div-2{
+    margin-top: 120px;
+    margin-left: 250px;
+} 

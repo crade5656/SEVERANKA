@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="./stylek.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+    
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-text">
+            <img class="logo" src="./img/Group (1).svg" alt="logo">
+            <p class="name-web">СЕВЕРЯНОЧКА</p>
+        </div>
+        <div class="catalog-container">
+            <button class="catalog-button">
+                <span class="menu-icon">&#9776;</span> Каталог
+            </button>
+            <div class="catalog-dropdown">
+                <a href="./Katalog.html">Каталог</a>   
+                <a href="#">Категория 2</a>
+                <a href="#">Категория 3</a>
+                <a href="#">Категория 4</a>
+            </div>
+        </div>
+        <div class="search-container">
+            <input class="search-bar" id="search" type="text" placeholder="Найти товар"button type="submit"><img class="search " src="./img/search copy.svg" alt="искать"></button>
+            <ul class="search-suggestions"></ul>
+        </div>
+        <div class="header-buttons">
+            <button >Избранное</button>
+            <button >Заказы</button>
+            <img src="./img/shopping-cart copy.svg" alt="photo-Корзины">
+            <a href="./index1.html"><button>Корзина</button></a> 
+        </div>
+    </header>
+
+    <section class="about-2">
+    <h1>Контакты</h1>
+
+    <div class="contact">
+        <div class="contact-item">
+            <div class="contact-inside">
+            <span class="icon">🏠</span>
+            <span class="icoon">Бухгалтерия, склад</span>
+        </div>
+        <div class="aa">
+            <a href="tel:+78214092619">+7 82140 92619</a>
+        </div>
+        </div>
+       
+        <div class="contact-item">
+            <div class="contact-item">
+            <span class="icon">%</span>
+            <span class="icoon">Вопросы по системе лояльности</span>
+        </div>
+        <div class="aa">
+            <a href="tel:+79087163397">+7 908 716 33 97</a>
+        </div>
+        </div>
+        
+    </div>
+
+    <h2>Наши магазины</h2>
+
+   
+    <div class="buttons">
+        <button class="active" onclick="changeLocation('Щельюр')">п.Щельюр</button>
+        <button onclick="changeLocation('Вертел')">д.Вертел</button>
+        <button onclick="changeLocation('Краснобор')">с.Краснобор</button>
+        <button onclick="changeLocation('Диор')">д.Диор</button>
+    </div>
+    <div class="main">
+        <div>
+            <h6 class="h66">ВОСХОД</h6>
+            <div class="main-start">
+                <img src="./img/home.svg" alt="" width="20px" height="20px">
+                <a  href="#" >ул. Дорожная 10</a>
+            </div>
+            <div class="main-last">
+                <img src="./img/phone.svg" alt=""  width="20px" height="20px">
+                <a href="#"  >+7 904 271 35 90</a>
+            </div>
+        </div>
+
+        <div>
+            <h6 class="h66">ПАРУС</h6>
+            <div class="main-start">
+                <img src="./img/home.svg" alt=""  width="20px" height="20px">
+                <a href="#" >ул. Советская 87</a>
+            </div>
+            <div class="main-last">
+                <img src="./img/phone.svg" alt=""  width="20px" height="20px">
+                <a  href="#" >+7 82140 91330</a>
+            </div>
+        </div>
+
+        <div>
+            <h6 class="h67">РЯБИНУШКА</h6>
+            <div class="main-start">
+                <img src="./img/home.svg" alt=""  width="20px" height="20px">
+                <a  href="#"  >ул. Заводская 16</a>
+            </div>
+            <div class="main-last">
+                <img src="./img/phone.svg" alt=""  width="20px" height="20px">
+                <a  href="#" >+7 82140 91101</a>
+            </div>
+        </div>
+
+        <div>
+            <h6 class="h67">ПЕЛЫСЬ</h6>
+            <div class="main-start">
+                <img src="./img/home.svg" alt=""  width="20px" height="20px">
+                <a href="#"  >ул. Рабочая 1</a>
+            </div>
+            <div class="main-last">
+                <img src="./img/phone.svg" alt=""  width="20px" height="20px">
+                <a  href="#" >+7 8214091300</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="map" style="height: 400px;"></div>
+    
+    <script>
+        // Инициализация карты
+        var map = L.map('map').setView([55.751244, 37.618423], 5); // Начальные координаты
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Данные о магазинах
+        var stores = [
+            { name: "Магазин в п.Щельюр", coords: [65.5, 52.5] },
+            { name: "Магазин в д.Вертел", coords: [66.0, 53.0] },
+            { name: "Магазин в с.Краснобор", coords: [67.0, 54.0] },
+            { name: "Магазин в д.Диор", coords: [68.0, 55.0] }
+        ];
+
+        // Добавление маркеров
+        stores.forEach(store => {
+            L.marker(store.coords)
+                .addTo(map)
+                .bindPopup(<b>${store.name}</b>);
+        });
+
+        // Функция для перелета к магазину
+        function goToLocation(index) {
+            map.flyTo(stores[index].coords, 10);
+        }
+    </script>
+</section>
+
+<button onclick="setDarkBackground()">Темный фон</button>
+<button onclick="setLightBackground()">Светлый фон</button>
+
+<script src="./scriptk.js"></script>
+</body>
+</html>
